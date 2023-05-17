@@ -11,6 +11,10 @@ setInterval(function() {
   var hourAngle = (hours % 12) * 30 + minutes / 2 + seconds / 120;
   var minuteAngle = minutes * 6 + seconds / 10;
   var secondAngle = seconds * 6;
+
+  // if (secondAngle >= 354) {
+  //   secondAngle = 0;
+  // }
   
   hourHand.style.transform = "rotate(" + hourAngle + "deg)";
   minuteHand.style.transform = "rotate(" + minuteAngle + "deg";

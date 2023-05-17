@@ -44,13 +44,24 @@ body{
         .chain-part {
             height: 50px;
             width: 0;
-            border: 4px solid black;
+            border: 4px solid white;
             border-radius: 5px;
 
             &:nth-child(2n) {
                 width: 50px;
                 border-radius: 100%;
-                border: 6px solid black;
+                border: 6px solid white;
+            }
+
+            $translateY: -30px;
+            $decrement: -15px;
+          
+            @for $i from 1 through 10 {
+              &:nth-child(#{$i}) {
+                transform: translateY($translateY);
+              }
+          
+              $translateY: $translateY + $decrement;
             }
         }
     }
@@ -60,20 +71,20 @@ body{
         flex-direction: column;
         align-items: center;
         position: relative;
-        top: -20px;
+        top: -185px;
 
         .clock-bracing {
             width: 70px;
             height: 30px;
             border-radius: 100px 100px 0 0;
-            background-color: black;
+            background-color: white;
         }
 
         .clock-out-border {
             width: 330px;
             height: 330px;
             border-radius: 100%;
-            border: 10px solid black;
+            border: 10px solid white;
             position: relative;
             top: -7px;
             display: flex;
@@ -84,7 +95,7 @@ body{
                 width: 280px;
                 height: 280px;
                 border-radius: 100%;
-                border: 7px solid black;
+                border: 7px solid white;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -92,7 +103,7 @@ body{
                 .hour-hand{
                     width: 6px;
                     height: 60px;
-                    background-color: #000;
+                    background-color: white;
                     border-radius: 5px;
                     transform-origin: bottom;
                     transition: transform 0.5s ease;
@@ -102,7 +113,7 @@ body{
                 .minute-hand{
                     width: 4px;
                     height: 80px;
-                    background-color: #000;
+                    background-color: white;
                     border-radius: 5px;
                     transform-origin: bottom;
                     transition: transform 0.5s ease;
@@ -113,12 +124,12 @@ body{
                 .second-hand{
                     width: 2px;
                     height: 120px;
-                    background-color: #000;
+                    background-color: #ffffff;
                     border-radius: 2px;
                     transform-origin: bottom;
                     transition: transform 0.5s ease;
                     position: absolute;
-                    top: calc(50% - 120px)
+                    top: calc(50% - 120px);
                 }
 
                 .hour-mark {
@@ -131,7 +142,7 @@ body{
                     .mark {
                         width: 4px;
                         height: 12px;
-                        background-color: #000;
+                        background-color: #ffffff;
                         border-radius: 3px;
                     }
 
@@ -209,13 +220,13 @@ body{
 
 @keyframes swing {
     0% {
-      transform: rotate(15deg);
+      transform: rotate(30deg);
     }
     50% {
-        transform: rotate(-15deg);
+        transform: rotate(-30deg);
      }
     100%{
-        transform: rotate(15deg);
+        transform: rotate(30deg);
       }
   }
 
@@ -226,4 +237,15 @@ body{
     height: 100%;
     width: 50%;
     background-color: black;
+ }
+
+ .light-side{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background-color: white;
+    z-index: 3;
+    mix-blend-mode: difference;
  }
